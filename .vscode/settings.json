@@ -1,0 +1,23 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/3.22.1",
+  // 検索対象からFVMのファイルを除外します。(任意)
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // ファイル監視対象からFVMのファイルを除外します。(任意)
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  // 自動フォーマット（言語ごとに設定するため無効化しておく）
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  // 自動フォーマット除外
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  // dart
+  "dart.closingLabels": false,
+}
