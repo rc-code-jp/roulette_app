@@ -1,5 +1,8 @@
 # NOTE:
-# GithubでSetting/Actions/Allow GitHub Actions to create and approve pull requestsにチェックが必要
+# GithubでSetting/Actions/Allowのから
+# - GitHub Actions to create and approve pull requests
+# - Read and write permissions
+# の権限が必要
 # ...
 
 name: github pages
