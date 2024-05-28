@@ -1,3 +1,7 @@
+# NOTE:
+# GithubでSetting/Actions/Allow GitHub Actions to create and approve pull requestsにチェックが必要
+# ...
+
 name: github pages
 
 on:
