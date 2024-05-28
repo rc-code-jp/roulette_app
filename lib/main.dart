@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roulette/roulette.dart';
 import 'package:roulette_app/components/arrow.dart';
+import 'package:roulette_app/utils/random_number.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Roulette',
+      title: '支払いルーレット',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -65,8 +66,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  // static final _random = Random();
-
   late RouletteController _controller;
 
   final colors = <Color>[
@@ -106,7 +105,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Roulette'),
+        title: const Text('支払いルーレット'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -127,8 +126,7 @@ class _HomePageState extends State<HomePage>
         onPressed: () => _controller.rollTo(
           3,
           clockwise: true,
-          // offset: _random.nextDouble(), // ランダムは消す
-          offset: 3.2, // Aがすべてを指すようにする
+          offset: generateRandomNumber(3.1, 3.9), // 3.1 - 3.9 でAがすべてを指すようにする
         ),
         child: const Icon(Icons.refresh_rounded),
       ),
