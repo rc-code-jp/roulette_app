@@ -84,6 +84,8 @@ class _HomePageState extends State<HomePage>
     'Bが多め',
   ];
 
+  bool isFirst = true;
+
   @override
   void initState() {
     super.initState();
@@ -123,11 +125,20 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _controller.rollTo(
+        onPressed: () => _controller
+            .rollTo(
           3,
           clockwise: true,
-          offset: generateRandomNumber(3.1, 3.9), // 3.1 - 3.9 でAがすべてを指すようにする
-        ),
+          // 最初のみ3.1-3.9でAがすべてを指すようにする
+          offset: isFirst
+              ? generateRandomNumber(3.1, 3.9)
+              : generateRandomNumber(0.1, 7.9),
+        )
+            .then((_) {
+          setState(() {
+            isFirst = false;
+          });
+        }),
         child: const Icon(Icons.refresh_rounded),
       ),
     );
