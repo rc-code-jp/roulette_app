@@ -119,6 +119,9 @@ class _HomePageState extends State<HomePage>
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 20),
+              ),
               MyRoulette(controller: _controller),
               const Padding(
                 padding: EdgeInsets.only(top: 20, left: 20, right: 20),
