@@ -77,11 +77,11 @@ class _HomePageState extends State<HomePage>
   ];
 
   final List<String> texts = [
-    'Aがすべて',
-    'Bがすべて',
-    'AとBで半分',
-    'Aが多め',
-    'Bが多め',
+    'すべてA',
+    'すべてB',
+    '半分',
+    'A多め',
+    'B多め',
   ];
 
   bool isFirst = true;
@@ -111,15 +111,31 @@ class _HomePageState extends State<HomePage>
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.pink.withOpacity(0.1),
+          color: Colors.orange.withOpacity(0.05),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             children: [
               MyRoulette(controller: _controller),
+              const Padding(
+                padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Aの名前',
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Bの名前',
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ),
             ],
           ),
         ),
@@ -128,6 +144,8 @@ class _HomePageState extends State<HomePage>
         onPressed: () => _controller
             .rollTo(
           3,
+          minRotateCircles: 40,
+          duration: const Duration(seconds: 20),
           clockwise: true,
           // 最初のみ3.1-3.9でAがすべてを指すようにする
           offset: isFirst
